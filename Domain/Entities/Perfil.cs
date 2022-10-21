@@ -12,5 +12,6 @@ namespace Domain.Entities
         public string Name { get; init; } = default!;
         public string Email { get; init; } = default!;
         public string Nick { get; init; } = default!;
+        public string Password { get; init; } = default!;
     }
 }

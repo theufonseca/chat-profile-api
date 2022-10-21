@@ -10,5 +10,6 @@ namespace Infra.Mongodb
     {
         public string ConnectionString { get; init; } = default!;
         public string DatabaseName { get; init; } = default!;
+        public string ProfileCollection { get; init; } = default!;
     }
 }
