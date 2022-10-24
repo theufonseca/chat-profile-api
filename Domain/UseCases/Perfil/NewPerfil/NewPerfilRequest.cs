@@ -32,7 +32,7 @@ namespace Domain.UseCases.Perfil.NewPerfil
 
         public async Task<NewPerfilResponse> Handle(NewPerfilRequest request, CancellationToken cancellationToken)
         {
-            var newPerfil = new Entities.Perfil()
+            var newPerfil = new Entities.Profile()
             {
                 Id = request.NickName,
                 Email = request.Email,

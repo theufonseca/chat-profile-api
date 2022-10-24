@@ -9,8 +9,9 @@ namespace Domain.Interfaces
 {
     public interface IProfileDbService
     {
-        Task CreateAsync(Perfil perfil);
-
-        Task<Perfil> GetAsync(string id);
+        Task CreateAsync(Profile perfil);
+        Task<Profile> GetAsync(string id);
+        Task DeleteAsync(string id);
+        Task UpdateAsync(string id, Profile profile);
     }
 }

@@ -25,7 +25,7 @@ namespace Infra.Mongodb.Services
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(Perfil perfil)
+        public async Task CreateAsync(Domain.Entities.Profile perfil)
         {
             var perfilModel = _mapper.Map<PerfilModel>(perfil);
 
@@ -35,14 +35,27 @@ namespace Infra.Mongodb.Services
             await _mongoCollection.InsertOneAsync(perfilModel);
         }
 
-        public async Task<Perfil> GetAsync(string id)
+        public async Task<Domain.Entities.Profile> GetAsync(string id)
         {
             var perfilModel = await _mongoCollection.Find(x => x.Id == id)
                 .FirstOrDefaultAsync();
 
-            var perfil = _mapper.Map<Perfil>(perfilModel);
+            var perfil = _mapper.Map<Domain.Entities.Profile>(perfilModel);
 
             return perfil;
+        }
+
+        public async Task DeleteAsync(string id)
+        {
+            await _mongoCollection.DeleteOneAsync(x => x.Id == id);
+        }
+
+        public async Task UpdateAsync(string id, Domain.Entities.Profile profile)
+        {
+            var profileModel = await _mongoCollection.Find(x => x.Id == id)
+                                        .FirstOrDefaultAsync();
+
+            await _mongoCollection.ReplaceOneAsync(x => x.Id == id, profileModel);
         }
     }
 }

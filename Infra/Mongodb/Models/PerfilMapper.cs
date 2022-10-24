@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Infra.Mongodb.Models
 {
-    public class ProfileMapper : Profile
+    public class ProfileMapper : AutoMapper.Profile
     {
         public ProfileMapper()
         {
-            CreateMap<Perfil, PerfilModel>();
-            CreateMap<PerfilModel, Perfil>();
+            CreateMap<Domain.Entities.Profile, PerfilModel>();
+            CreateMap<PerfilModel, Domain.Entities.Profile>();
         }
     }
 }

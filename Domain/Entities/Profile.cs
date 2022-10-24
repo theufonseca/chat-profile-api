@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Perfil
+    public class Profile
     {
         public string Id { get; init; } = default!;
         public string Name { get; init; } = default!;
