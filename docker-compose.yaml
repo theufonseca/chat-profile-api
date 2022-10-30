@@ -26,9 +26,6 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:example@dbperfil:27017/
     networks:
       - chat
-  
-  profile-api:
-    build: .\chat-perfil-api
 
 networks:
   chat:
